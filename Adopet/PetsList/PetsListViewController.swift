@@ -41,20 +41,46 @@ class PetsListViewController: UIViewController, UITableViewDelegate, UITableView
     }()
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        self.setupView()
+        self.setVisualElements()
+        self.setupTableHeaderView()
+        self.setupNavigationBarButton()
+        self.fetchAllPets()
+    }
+    
+    override func viewSafeAreaInsetsDidChange() {
+        setConstraints()
+    }
+    
+    private func setVisualElements() {
+        view.addSubview(tableView)
+    }
+    
+    private func setConstraints() {
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: -view.safeAreaInsets.top).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    private func setupView() {
         navigationItem.hidesBackButton = true
         view.backgroundColor = .white
-        
-        view.addSubview(tableView)
-                
+    }
+    
+    private func setupTableHeaderView() {
         self.tableView.tableHeaderView = TableHeaderView(frame: .init(x: 0, y: 0, width: view.frame.size.width, height: 200))
-        
+    }
+    
+    private func setupNavigationBarButton() {
         let backItem = UIBarButtonItem()
         backItem.title = "Pets"
         backItem.tintColor = .white
         navigationItem.backBarButtonItem = backItem
-        
+    }
+    
+    private func fetchAllPets() {
         dataManager.request(url: URL(string: "https://my-json-server.typicode.com/giovannamoeller/pets-api/pets")!) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -67,12 +93,4 @@ class PetsListViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
     }
-    
-    override func viewSafeAreaInsetsDidChange() {
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: -view.safeAreaInsets.top).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    }
-    
 }

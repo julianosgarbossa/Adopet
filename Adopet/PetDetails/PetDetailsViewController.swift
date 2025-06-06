@@ -93,35 +93,20 @@ class PetDetailsViewController: UIViewController {
         return stack
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        view.addSubview(decorativeShapeImageView)
-        view.addSubview(stackView)
-        
-        dataManager.downloadPetImage(from: pet.imageUrl) { image in
-            DispatchQueue.main.async {
-                guard let image else { return }
-                self.petImageView.image = image
-            }
+    @objc func didTapPhoneCallButton() {
+        if let url = URL(string: "tel://\(pet.phoneNumber)") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
+    }
+    
+    @objc func didTapSendWhatsappMessageButton() {
+        guard let whastappURL = URL(string: "whatsapp://send?phone=\(pet.phoneNumber)&text=Olá! Tenho interesse no pet \(pet.name)") else { return }
         
-        NSLayoutConstraint.activate([
-            
-            decorativeShapeImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            decorativeShapeImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            decorativeShapeImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            stackView.topAnchor.constraint(equalTo: decorativeShapeImageView.bottomAnchor, constant: -120),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
-            
-            petImageView.heightAnchor.constraint(equalToConstant: 172),
-            phoneCallButton.heightAnchor.constraint(equalToConstant: 48),
-            whatsappMessageButton.heightAnchor.constraint(equalToConstant: 48),
-            
-        ])
+        if UIApplication.shared.canOpenURL(whastappURL) {
+            UIApplication.shared.open(whastappURL, options: [:], completionHandler: nil)
+        } else {
+            self.openWhatsappInAppStore()
+        }
     }
     
     init(pet: Pet) {
@@ -133,21 +118,51 @@ class PetDetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func didTapPhoneCallButton() {
-        if let url = URL(string: "tel://\(pet.phoneNumber)") {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupView()
+        self.setVisualElements()
+        self.setConstraints()
+        self.setPetImageView()
+    }
+    
+    private func setupView() {
+        view.backgroundColor = .white
+    }
+    
+    private func setVisualElements() {
+        view.addSubview(decorativeShapeImageView)
+        view.addSubview(stackView)
+    }
+    
+    private func setConstraints() {
+        NSLayoutConstraint.activate([
+            decorativeShapeImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            decorativeShapeImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            decorativeShapeImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            stackView.topAnchor.constraint(equalTo: decorativeShapeImageView.bottomAnchor, constant: -120),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
+            
+            petImageView.heightAnchor.constraint(equalToConstant: 172),
+            phoneCallButton.heightAnchor.constraint(equalToConstant: 48),
+            whatsappMessageButton.heightAnchor.constraint(equalToConstant: 48),
+        ])
+    }
+    
+    private func setPetImageView() {
+        dataManager.downloadPetImage(from: pet.imageUrl) { image in
+            DispatchQueue.main.async {
+                guard let image else { return }
+                self.petImageView.image = image
+            }
         }
     }
     
-    @objc func didTapSendWhatsappMessageButton() {
-        if let whatsapp = URL(string: "whatsapp://send?phone=\(pet.phoneNumber)&text=Olá! Tenho interesse no pet \(pet.name)") {
-            if UIApplication.shared.canOpenURL(whatsapp) {
-                UIApplication.shared.open(whatsapp, options: [:], completionHandler: nil)
-            } else {
-                if let appstore = URL(string: "https://apps.apple.com/app/whatsapp-messenger/id310633997") {
-                    UIApplication.shared.open(appstore, options: [:], completionHandler: nil)
-                }
-            }
-        }
+    private func openWhatsappInAppStore() {
+        guard let appStoreURL = URL(string: "https://apps.apple.com/app/whatsapp-messenger/id310633997") else { return }
+        
+        UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
     }
 }
