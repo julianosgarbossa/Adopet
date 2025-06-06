@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="216" id="KGk-i7-Jjw" customClass="PetTableViewCell" customModule="Adopet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="722" height="216"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="722" height="216"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cK2-xT-7Xd">
+                        <rect key="frame" x="0.0" y="0.0" width="722" height="174"/>
+                        <color key="backgroundColor" name="ColorLightGray"/>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dunga" translatesAutoresizingMaskIntoConstraints="NO" id="J4q-EN-tDy">
+                        <rect key="frame" x="36" y="27" width="120" height="120"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="Fg4-4b-msU"/>
+                            <constraint firstAttribute="height" constant="120" id="cAg-zf-VHv"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dunga" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FB-F3-DnZ">
+                        <rect key="frame" x="172" y="27" width="514" height="25.333333333333329"/>
+                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="18"/>
+                        <color key="textColor" name="ColorBlue"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGj-Bt-w9K">
+                        <rect key="frame" x="172" y="60.333333333333343" width="514" height="59"/>
+                        <string key="text">2 anos
+Porte pequeno
+Calmo e educado</string>
+                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                        <color key="textColor" name="ColorGray"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rio de Janeiro (RJ)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXo-6u-Kxb">
+                        <rect key="frame" x="172" y="135.33333333333334" width="514" height="17"/>
+                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                        <color key="textColor" name="ColorGray"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="cK2-xT-7Xd" secondAttribute="bottom" constant="16" id="7hf-wh-sbl"/>
+                    <constraint firstItem="XGj-Bt-w9K" firstAttribute="leading" secondItem="J4q-EN-tDy" secondAttribute="trailing" constant="16" id="7u1-4j-tdw"/>
+                    <constraint firstItem="cK2-xT-7Xd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8G9-3z-b7N"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="AXo-6u-Kxb" secondAttribute="trailing" constant="16" id="FHq-DE-7w0"/>
+                    <constraint firstItem="cK2-xT-7Xd" firstAttribute="bottom" secondItem="J4q-EN-tDy" secondAttribute="bottom" constant="27" id="JiJ-yp-UFH"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="AXo-6u-Kxb" secondAttribute="bottom" constant="16" id="Q5K-cq-j9s"/>
+                    <constraint firstItem="7FB-F3-DnZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="SqN-yB-Hde"/>
+                    <constraint firstItem="AXo-6u-Kxb" firstAttribute="top" secondItem="XGj-Bt-w9K" secondAttribute="bottom" constant="16" id="Vd2-F3-LXJ"/>
+                    <constraint firstItem="J4q-EN-tDy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="cHk-E5-Bgn"/>
+                    <constraint firstItem="J4q-EN-tDy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="dn6-OW-4q5"/>
+                    <constraint firstAttribute="trailing" secondItem="cK2-xT-7Xd" secondAttribute="trailing" id="e0n-MO-2gb"/>
+                    <constraint firstItem="7FB-F3-DnZ" firstAttribute="leading" secondItem="J4q-EN-tDy" secondAttribute="trailing" constant="16" id="iUR-YG-rj3"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="XGj-Bt-w9K" secondAttribute="trailing" constant="16" id="iXs-aE-IyG"/>
+                    <constraint firstItem="AXo-6u-Kxb" firstAttribute="leading" secondItem="J4q-EN-tDy" secondAttribute="trailing" constant="16" id="iYP-TY-fDU"/>
+                    <constraint firstItem="XGj-Bt-w9K" firstAttribute="top" secondItem="7FB-F3-DnZ" secondAttribute="bottom" constant="8" id="ik3-vN-yPI"/>
+                    <constraint firstItem="cK2-xT-7Xd" firstAttribute="centerY" secondItem="J4q-EN-tDy" secondAttribute="centerY" id="oLY-9d-TQE"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="7FB-F3-DnZ" secondAttribute="trailing" constant="16" id="sNQ-z6-wNN"/>
+                    <constraint firstItem="cK2-xT-7Xd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uMW-dA-dKS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dogDescription" destination="XGj-Bt-w9K" id="vIk-NE-d54"/>
+                <outlet property="dogImg" destination="J4q-EN-tDy" id="6cY-kE-JHZ"/>
+                <outlet property="location" destination="AXo-6u-Kxb" id="1J5-qE-5c2"/>
+                <outlet property="name" destination="7FB-F3-DnZ" id="YH0-XT-KdG"/>
+            </connections>
+            <point key="canvasLocation" x="401.52671755725191" y="-9.1549295774647899"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Dunga" width="148" height="148"/>
+        <namedColor name="ColorBlue">
+            <color red="0.21568627450980393" green="0.44705882352941179" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ColorGray">
+            <color red="0.45098039215686275" green="0.45098039215686275" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ColorLightGray">
+            <color red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
