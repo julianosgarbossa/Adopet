@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AF280A02DF37E460025894A /* CreateUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF2809F2DF37E460025894A /* CreateUserAccount.swift */; };
 		48941E3C2B83E75E00C2CF86 /* PetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48941E3B2B83E75E00C2CF86 /* PetDetailsViewController.swift */; };
 		48941E422B85275600C2CF86 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48941E412B85275600C2CF86 /* TableHeaderView.swift */; };
 		48A900D02B79786F0057616A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A900CF2B79786F0057616A /* AppDelegate.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3AF2809F2DF37E460025894A /* CreateUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserAccount.swift; sourceTree = "<group>"; };
 		48941E3B2B83E75E00C2CF86 /* PetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailsViewController.swift; sourceTree = "<group>"; };
 		48941E412B85275600C2CF86 /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
 		48A900CC2B79786F0057616A /* Adopet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adopet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				48C9B3672B7C204500F16F61 /* Pet.swift */,
+				3AF2809F2DF37E460025894A /* CreateUserAccount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				48941E3C2B83E75E00C2CF86 /* PetDetailsViewController.swift in Sources */,
 				48A900D22B79786F0057616A /* SceneDelegate.swift in Sources */,
 				48C9B3662B7C200200F16F61 /* PetsListViewController.swift in Sources */,
+				3AF280A02DF37E460025894A /* CreateUserAccount.swift in Sources */,
 				48A901062B7AB06C0057616A /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

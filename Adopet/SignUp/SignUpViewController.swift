@@ -234,7 +234,14 @@ class SignUpViewController: UIViewController {
     
     @objc func signUpButton() {
         
-        db.saveUser(name: nameTxtField.text!, email: emailTxtField.text!, phoneNumber: telefoneTxtField.text!, password: password.text!)
+        guard let name = nameTxtField.text,
+              let email = emailTxtField.text,
+              let phoneNumber = telefoneTxtField.text,
+              let password = passwordtxtField.text else { return }
+    
+        let userData = CreateUserAccount(name: name, email: email, phoneNumber: phoneNumber, password: password)
+        
+        db.saveUser(userData: userData)
         
         navigationController?.pushViewController(SignInViewController(), animated: true)
     }
