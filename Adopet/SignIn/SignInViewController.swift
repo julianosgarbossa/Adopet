@@ -161,8 +161,8 @@ class SignInViewController: UIViewController {
     }
     
     @objc func signIn() {
-        let email = emailTxtField.text!
-        let password = passwordTxtField.text!
+//        let email = emailTxtField.text!
+//        let password = passwordTxtField.text!
         
         navigationController?.pushViewController(PetsListViewController(), animated: true)
     }
