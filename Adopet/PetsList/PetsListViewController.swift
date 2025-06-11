@@ -7,27 +7,10 @@
 
 import UIKit
 
-class PetsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PetsListViewController: UIViewController {
     
     var data: [Pet] = []
     private var dataManager = DataManager()
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PetTableViewCell", for: indexPath) as? PetTableViewCell else {
-            return UITableViewCell()
-        }
-        cell.set(pet: data[indexPath.row])
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(PetDetailsViewController(pet: data[indexPath.row]), animated: true)
-    }
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -94,3 +77,28 @@ class PetsListViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 }
+
+// MARK: - Table View DataSource e Delegate
+
+extension PetsListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PetTableViewCell", for: indexPath) as? PetTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.set(pet: data[indexPath.row])
+        return cell
+    }
+}
+
+extension PetsListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        navigationController?.pushViewController(PetDetailsViewController(pet: data[indexPath.row]), animated: true)
+    }
+}
+
+
