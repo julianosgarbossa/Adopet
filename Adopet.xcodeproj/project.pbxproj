@@ -111,6 +111,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		3A8925A32DFA11C9008ACD5C /* Components */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Components; sourceTree = "<group>"; };
+		3A8925A62DFA20D6008ACD5C /* Utils */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Utils; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +247,7 @@
 		48A900CE2B79786F0057616A /* Adopet */ = {
 			isa = PBXGroup;
 			children = (
+				3A8925A62DFA20D6008ACD5C /* Utils */,
 				3A8925A32DFA11C9008ACD5C /* Components */,
 				48514CF92B88CABB0021AE7E /* Services */,
 				48514CF82B88CAAD0021AE7E /* PetDetails */,
@@ -332,6 +334,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				3A8925A32DFA11C9008ACD5C /* Components */,
+				3A8925A62DFA20D6008ACD5C /* Utils */,
 			);
 			name = Adopet;
 			productName = Adopet;
