@@ -10,7 +10,7 @@ import UIKit
 class PetsListViewController: UIViewController {
     
     var data: [Pet] = []
-    private var dataManager = DataManager()
+    private var dataService = PetsDataService()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -64,7 +64,7 @@ class PetsListViewController: UIViewController {
     }
     
     private func fetchAllPets() {
-        dataManager.request(url: URL(string: "https://my-json-server.typicode.com/giovannamoeller/pets-api/pets")!) { result in
+        dataService.fetchPets(url: URL(string: "https://my-json-server.typicode.com/giovannamoeller/pets-api/pets")!) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let result):
