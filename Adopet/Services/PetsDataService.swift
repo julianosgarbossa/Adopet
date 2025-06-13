@@ -16,8 +16,11 @@ class PetsDataService {
     
     weak var delegate: PetsDataServiceDelegate?
     
-    private var networkingService: NetworkingProtocol = URLSessionNetworking()
+    private var networkingService: NetworkingProtocol
     
+    init(networkingService: NetworkingProtocol) {
+        self.networkingService = networkingService
+    }
     func fetchPets() {
         guard let url = URL(string: "https://my-json-server.typicode.com/giovannamoeller/pets-api/pets") else { return }
         
