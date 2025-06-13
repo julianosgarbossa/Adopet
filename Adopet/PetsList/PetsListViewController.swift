@@ -25,6 +25,7 @@ class PetsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataService.delegate = self
         self.setupView()
         self.setVisualElements()
         self.setupTableHeaderView()
@@ -64,17 +65,7 @@ class PetsListViewController: UIViewController {
     }
     
     private func fetchAllPets() {
-        dataService.fetchPets() { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let result):
-                    self.data = result
-                    self.tableView.reloadData()
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
+        dataService.fetchPets()
     }
 }
 
@@ -98,6 +89,18 @@ extension PetsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         navigationController?.pushViewController(PetDetailsViewController(pet: data[indexPath.row]), animated: true)
+    }
+}
+
+// MARK: - Networking Delegate
+extension PetsListViewController: PetsDataServiceDelegate {
+    func didFetchPetsSuccessfully(pets: [Pet]) {
+        self.data = pets
+        tableView.reloadData()
+    }
+    
+    func didFailtWithError(error: NetworkingError) {
+        print(error)
     }
 }
 
